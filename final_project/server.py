@@ -8,17 +8,17 @@ app = Flask("Web Translator")
 def translateToFrench():
     textToTranslate = request.args.get('textToTranslate')
     result = translator.english_to_french(textToTranslate)
-    return "Translated text to French" + result
+    return result
 
 @app.route("/frenchToEnglish")
 def translateToEnglish():
     textToTranslate = request.args.get('textToTranslate')
     result = translator.french_to_english(textToTranslate)
-    return "Translated text to English" + result
+    return result
 
 @app.route("/")
 def renderIndexPage():
     return render_template('index.html')
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="127.0.0.1", port=8080)
